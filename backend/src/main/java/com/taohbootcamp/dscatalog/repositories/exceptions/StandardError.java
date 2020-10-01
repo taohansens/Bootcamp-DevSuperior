@@ -20,8 +20,8 @@ public class StandardError implements Serializable {
 		return timestamp;
 	}
 
-	public void setTimestamp(Instant timestamp) {
-		this.timestamp = timestamp;
+	public void setTimestamp(Instant instant) {
+		this.timestamp = instant;
 	}
 
 	public Integer getStatus() {
