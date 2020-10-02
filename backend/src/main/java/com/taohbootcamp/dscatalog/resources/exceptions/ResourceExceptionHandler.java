@@ -1,4 +1,4 @@
-package com.taohbootcamp.dscatalog.repositories.exceptions;
+package com.taohbootcamp.dscatalog.resources.exceptions;
 
 import java.time.Instant;
 
