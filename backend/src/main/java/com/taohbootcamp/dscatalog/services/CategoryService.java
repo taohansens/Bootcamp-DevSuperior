@@ -13,21 +13,22 @@ import org.springframework.transaction.annotation.Transactional;
 import com.taohbootcamp.dscatalog.dto.CategoryDTO;
 import com.taohbootcamp.dscatalog.entities.Category;
 import com.taohbootcamp.dscatalog.repositories.CategoryRepository;
+import com.taohbootcamp.dscatalog.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class CategoryService {
-	
+
 	@Autowired
 	private CategoryRepository repository;
-	
+
 	@Transactional(readOnly = true)
 	public List<CategoryDTO> findAll() {
 		List<Category> list = repository.findAll();
-		
+
 		return list.stream().map(x -> new CategoryDTO(x)).collect(Collectors.toList());
 	}
 
-	@Transactional(readOnly = true) 
+	@Transactional(readOnly = true)
 	public CategoryDTO findById(Long id) {
 		Optional<Category> obj = repository.findById(id);
 		Category entity = obj.orElseThrow(() -> new EntityNotFoundException("Categoria não encontrada."));
@@ -40,5 +41,18 @@ public class CategoryService {
 		entity.setName(dto.getName());
 		entity = repository.save(entity);
 		return new CategoryDTO(entity);
+	}
+
+	@Transactional
+	public CategoryDTO update(Long id, CategoryDTO dto) {
+		try {
+		Category entity = repository.getOne(id);
+		entity.setName(dto.getName());
+		entity = repository.save(entity);
+		return new CategoryDTO(entity);
+		}
+		catch (EntityNotFoundException e){
+			throw new ResourceNotFoundException("Id not found "+ id);
+		}
 	}
 }
