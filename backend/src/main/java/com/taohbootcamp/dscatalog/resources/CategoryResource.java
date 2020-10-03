@@ -1,6 +1,7 @@
 package com.taohbootcamp.dscatalog.resources;
 
 import java.net.URI;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -27,6 +28,12 @@ public class CategoryResource {
 	
 	@Autowired
 	private CategoryService service;
+	
+	@GetMapping(value= "/showall")
+	public ResponseEntity<List<CategoryDTO>> listAll(){
+		List<CategoryDTO> list = service.showAll();
+		return ResponseEntity.ok().body(list);
+	}
 	
 	@GetMapping
 	public ResponseEntity<Page<CategoryDTO>> findAll(

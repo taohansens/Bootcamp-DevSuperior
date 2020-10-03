@@ -26,12 +26,12 @@ public class CategoryService {
 	@Autowired
 	private CategoryRepository repository;
 
-	/*@Transactional(readOnly = true)
-	public List<CategoryDTO> findAll() {
+	@Transactional(readOnly = true)
+	public List<CategoryDTO> showAll() {
 		List<Category> list = repository.findAll();
 
 		return list.stream().map(x -> new CategoryDTO(x)).collect(Collectors.toList());
-	}*/
+	}
 
 	@Transactional(readOnly = true)
 	public CategoryDTO findById(Long id) {
@@ -75,5 +75,10 @@ public class CategoryService {
 	public Page<CategoryDTO> findAllPaged(PageRequest pageRequest) {
 	Page<Category> list = repository.findAll(pageRequest);
 	return list.map(x -> new CategoryDTO(x));
+	}
+
+	public List<CategoryDTO> listAll() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
