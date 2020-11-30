@@ -1,8 +1,12 @@
 import React from 'react';
 
-const Alert = () => (
+type Props = {
+    text?: string; // Com "?"" -> Opcional
+}
+
+const Alert = ({ text }: Props) => (
     <div className="alert alert-primary">
-        Bem vindo, Tao H.
+        Bem vindo, { text }.
     </div>
 );
 
