@@ -1,0 +1,14 @@
+/*
+    Documentação
+    # https://getbootstrap.com/docs/4.5/getting-started/theming/
+    # https://create-react-app.dev/docs/adding-bootstrap#using-a-custom-theme
+*/
+
+$theme-colors: (
+    "primary": #407BFF
+);
+
+$body-bg: #e5e5e5;
+$body-color: #263238;
+
+@import '~bootstrap/scss/bootstrap.scss';
