@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const App = () => {
     const [counter, setCounter] = useState(0);
-    
+
+    useEffect(() => {
+        // Ciclo de vida
+        console.log('Componente Iniciado')
+    }, [])
+
     return (
         <div className="container mt-5">
             <button 
@@ -20,6 +25,8 @@ const App = () => {
             >
                 -
             </button>
+            {counter > 5 && <h1>O valor é maior que 5.</h1>}
+            {counter <= 5 && <h1>O valor é menor ou igual a 5.</h1>}
         </div>
     );
 }
