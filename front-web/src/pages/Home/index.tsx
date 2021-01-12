@@ -4,11 +4,11 @@ import './styles.scss';
 const Home = () => (
     <div className="home-container">
         <div className="row home-content">
-            <div className="col-6">
+            <div className="col-md-6">
                 <h1 className="text-title">Conheça o melhor <br /> catálogo de produtos</h1>
                 <p className="text-subtitle">Ajudaremos você a encontrar os melhores <br /> produtos disponíveis no mercado.</p>
             </div>
-            <div className="col-6">
+            <div className="col-md-6">
                 <MainImage className="main-image"/>
             </div>
         </div>
